@@ -1,9 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var CsvUserRow = sequelize.define('CsvUserRow', {
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    email: DataTypes.STRING
+  var CsvData = sequelize.define('CsvData', {
+    data: DataTypes.STRING,
   }, {
     classMethods: {
       associate: function(models) {
@@ -11,5 +9,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return CsvUserRow;
+  return CsvData;
 };

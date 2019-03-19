@@ -1,18 +1,12 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('CsvUserRows', {
+    return queryInterface.createTable('CsvData', {
       id: {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_name: {
-        type: Sequelize.STRING
-      },
-      last_name: {
-        type: Sequelize.STRING
-      },
-      email: {
+      data: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -26,6 +20,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('CsvUserRows');
+    return queryInterface.dropTable('CsvData');
   }
 };

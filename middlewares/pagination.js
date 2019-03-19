@@ -5,7 +5,7 @@ const pagination = function(req, res, next) {
     var page = parseInt(req.params.page) || 1,
         num = page * limit;
 
-        models.CsvUserRow.count().then( c => {
+        models.CsvData.count().then( c => {
             var pages = Math.ceil(c / limit);
             res.pagination = {
                 total: c,

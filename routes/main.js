@@ -13,11 +13,11 @@ router.get('/', (req, res, next) => {
 
 router.get('/show_all', pagination, (req, res, next) => {
 
-  models.CsvUserRow.findAll({ limit: res.pagination.limit, offset: res.pagination.offset }).then(csvRows => {
+  models.CsvData.findAll().then(CsvData => {
     res.render('main_table', {
       title: "Main Table",
-      csvRows: csvRows,
-      pagination: res.pagination
+      CsvData: CsvData,
+      Headings: CsvData[0]
     })
   });
 });

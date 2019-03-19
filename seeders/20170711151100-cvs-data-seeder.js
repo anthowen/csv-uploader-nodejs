@@ -4,10 +4,8 @@ const populateWithRandom = require('./populateWithRandom');
 module.exports = {
   up: function (queryInterface, Sequelize) {
     
-    return queryInterface.bulkInsert('CsvUserRows', [{
-      first_name: 'John',
-      last_name: 'Doe',
-      email : 'johndoe@mail.com',
+    return queryInterface.bulkInsert('CsvData', [{
+      data: '{"Company Name":"C1", "01/01/2019":"48"}',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
@@ -16,7 +14,7 @@ module.exports = {
 
   down: function (queryInterface, Sequelize) {
     
-    return queryInterface.bulkDelete('CsvUserRow', null, {});
+    return queryInterface.bulkDelete('CsvData', null, {});
     
   }
 };

@@ -13,19 +13,17 @@ const insertCsv = (filePath, responseCallback, removeFlag) => {
     db.serialize(function() {
 
         db.run("begin transaction");
-        var stmt = db.prepare("insert into CsvUserRows (first_name, last_name, email, createdAt, updatedAt) values (?, ?, ?, ?, ?)");
+
+        db.run("delete from CsvData");
+        var stmt = db.prepare("insert into CsvData (data, createdAt, updatedAt) values (?, ?, ?)");
 
         parser.on('data', (chunk) => {
             
             stmt.run( 
-                chunk[0], 
-                chunk[1], 
-                chunk[2],
+                JSON.stringify(chunk),
                 new Date().toString(),
                 new Date().toString()
             );
-           
-            //console.log(chunk);
         });
 
         parser.on('error', (err) => {

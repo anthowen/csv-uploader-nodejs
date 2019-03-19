@@ -1,37 +1,28 @@
 extends layout
-
 block content
     div.container-fluid
-        table.table.table-hover
+        table(
+            data-toggle='table'
+            class='table table-striped table-bordered'
+            data-search='true'
+            data-pagination='true'
+            )
+
             thead
-                tr
-                    th First Name
-                    th Last Name
-                    th Email
-                    th Created At
-                    th Updated At
+                - var items = JSON.parse(Headings.get('data'));
+                each value in items
+                    th(data-sortable='true')= value
             tbody
-                each userRow in csvRows
+                - var index = 0;
+                each record in CsvData
                     tr
-                        th= userRow.get('first_name')
-                        th= userRow.get('last_name')
-                        th= userRow.get('email')
-                        th= userRow.get('createdAt').toDateString()
-                        th= userRow.get('updatedAt').toDateString()
-        nav(aria-label="Page navigation")
-            ul.pagination
-                if pagination.prev
-                    li
-                        a(href="/show_all?page=1", aria-label="Previous")
-                            span(aria-hidden="true") &laquo;
-                - for (var i = pagination.page; i < (pagination.page + 5) && i < pagination.pages; i++)
-                    if(i == pagination.page)
-                        li.active
-                            a(href=`/show_all?page=${i}`)= i
-                    else
-                        li
-                            a(href=`/show_all?page=${i}`)= i
-                if pagination.next
-                    li
-                        a(href=`/show_all?page=${pagination.pages}`, arial-label="Next")
-                            span(aria-hidden="true") &raquo;
+                        - var items = JSON.parse(record.get('data'));
+
+                        if index == 0
+                            - index = 1
+                        else
+                            each value in items
+                                td= value
+
+        script(src='/libs/jquery/dist/jquery.min.js')
+        script(src='/libs/bootstrap-table/dist/bootstrap-table.min.js')

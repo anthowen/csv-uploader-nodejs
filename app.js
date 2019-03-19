@@ -31,7 +31,7 @@ app.use(sassMiddleware({
 }));
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
-app.use('/libs', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+app.use('/libs', express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', main);
 
