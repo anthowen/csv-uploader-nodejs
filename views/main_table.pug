@@ -9,9 +9,10 @@ block content
             )
 
             thead
-                - var items = JSON.parse(Headings.get('data'));
-                each value in items
-                    th(data-sortable='true')= value
+                if typeof Headings !== 'undefined'
+                    - var items = JSON.parse(Headings.get('data'));
+                    each value in items
+                        th(data-sortable='true')= value
             tbody
                 - var index = 0;
                 each record in CsvData
