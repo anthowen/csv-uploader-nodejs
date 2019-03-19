@@ -22,6 +22,9 @@ $ npm start
 ```
 $ npm test
 ```
+### Demo
+https://csv-upload-sortable.herokuapp.com/
+
 ### Sample data
 
 | Company Name | 1/1/2019 | 1/2/2019 | 1/3/2019 | 1/4/2019 | 1/5/2019 | 1/6/2019 | 1/7/2019 |
