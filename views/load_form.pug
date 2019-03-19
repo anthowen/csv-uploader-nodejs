@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    div(id="main_container").container-fluid
+        form(action="/load_csv", method="post", enctype="multipart/form-data").form-horizontal
+            
+            input(type="file", name="userfile", id="userfile")
+            div.form-group
+                div.col-sm-offset-2.col-sm-10
+                    button(type="button", id="send_button").btn.btn-default Submit CSV
+    script(src='/static/javascripts/send.js')

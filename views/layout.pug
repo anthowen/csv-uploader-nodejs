@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/static/stylesheets/style.css')
+    link(rel='stylesheet', href='/libs/css/bootstrap.min.css')
+  body
+    nav.navbar.navbar-default
+      div.container-fluid
+        div.navbar-header
+          a(href="/").navbar-brand Home
+          a(href="/show_all").navbar-brand Show table
+          a(href="/load_csv").navbar-brand Load Csv
+    block content

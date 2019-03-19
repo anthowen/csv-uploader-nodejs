@@ -1,0 +1,32 @@
+{
+  "name": "csv-uploader",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=production sequelize db:migrate && NODE_ENV=production node ./bin/www",
+    "start:dev": "NODE_ENV=development sequelize db:migrate && NODE_ENV=development nodemon ./bin/www",
+    "sequelize": "sequelize",
+    "test": "NODE_ENV=test sequelize db:migrate && NODE_ENV=test mocha"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "bootstrap": "^3.3.7",
+    "cookie-parser": "~1.4.3",
+    "csv": "^1.1.1",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "express-fileupload": "^0.1.4",
+    "morgan": "~1.8.1",
+    "node-sass-middleware": "0.9.8",
+    "pug": "~2.0.0-beta11",
+    "sequelize": "^4.3.1",
+    "sequelize-cli": "^2.7.0",
+    "serve-favicon": "~2.4.2",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
+  }
+}

@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    div.container-fluid
+        table.table.table-hover
+            thead
+                tr
+                    th First Name
+                    th Last Name
+                    th Email
+                    th Created At
+                    th Updated At
+            tbody
+                each userRow in csvRows
+                    tr
+                        th= userRow.get('first_name')
+                        th= userRow.get('last_name')
+                        th= userRow.get('email')
+                        th= userRow.get('createdAt').toDateString()
+                        th= userRow.get('updatedAt').toDateString()
+        nav(aria-label="Page navigation")
+            ul.pagination
+                if pagination.prev
+                    li
+                        a(href="/show_all?page=1", aria-label="Previous")
+                            span(aria-hidden="true") &laquo;
+                - for (var i = pagination.page; i < (pagination.page + 5) && i < pagination.pages; i++)
+                    if(i == pagination.page)
+                        li.active
+                            a(href=`/show_all?page=${i}`)= i
+                    else
+                        li
+                            a(href=`/show_all?page=${i}`)= i
+                if pagination.next
+                    li
+                        a(href=`/show_all?page=${pagination.pages}`, arial-label="Next")
+                            span(aria-hidden="true") &raquo;
