@@ -1,7 +1,7 @@
 # csv-uploader-nodejs
 This simple nodejs application takes data from uploaded csv, and show it as a sortable dashboard on a webpage.
 
-### If you using docker and docker-compose:
+### If you're using docker and docker-compose:
 ```
 $ docker-compose build
 $ docker-compose up
