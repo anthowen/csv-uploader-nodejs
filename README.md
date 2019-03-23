@@ -22,7 +22,7 @@ $ npm start
 ```
 $ npm test
 ```
-### Demo
+### Live Demo
 https://csv-upload-sortable.herokuapp.com/
 
 ### Sample data
